@@ -23,7 +23,7 @@ cd elfinfo
 Installs into a local `.venv` and symlinks `elfinfo` into `~/.local/bin`. To uninstall:
 
 ```bash
-./install.sh uninstall
+./install.sh --uninstall
 ```
 
 ## Requirements
