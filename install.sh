@@ -5,9 +5,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV="$SCRIPT_DIR/.venv"
 
 usage() {
-    echo "Usage: $0 [install|uninstall]"
-    echo "  install    Create venv and install elfinfo (default)"
-    echo "  uninstall  Remove venv and egg-info"
+    echo "Usage: $0 [--uninstall]"
+    echo "  (no flags)   Create venv and install elfinfo"
+    echo "  --uninstall  Remove venv, egg-info, and symlink"
     exit 1
 }
 
@@ -53,8 +53,8 @@ uninstall() {
     echo "Done. elfinfo uninstalled."
 }
 
-case "${1:-install}" in
-    install)   install ;;
-    uninstall) uninstall ;;
-    *)         usage ;;
+case "${1:-}" in
+    "")           install ;;
+    --uninstall)  uninstall ;;
+    *)            usage ;;
 esac
